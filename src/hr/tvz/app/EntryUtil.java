@@ -1,9 +1,6 @@
 package hr.tvz.app;
 
-import hr.tvz.entity.Lesson;
-import hr.tvz.entity.Named;
-import hr.tvz.entity.Subject;
-import hr.tvz.entity.Teacher;
+import hr.tvz.entity.*;
 
 import java.util.*;
 
@@ -149,9 +146,63 @@ public class EntryUtil {
         return chosenLessons;
     }
 
+    public static Set<Achievement> chooseAchievements (Scanner scanner, Set<Achievement> availableAchievements){
+        if (availableAchievements.isEmpty()) {
+            System.out.println("️No achievements available!");
+            return null;
+        }
 
+        ArrayList<Achievement> achievements = new ArrayList<>(availableAchievements);
 
+        // Display all available Achievements with numbers
+        System.out.println("\nAvailable Achievements:");
+        int index = 1;
+        for (Achievement a : achievements) {
+            System.out.println(index++ + ". " + a.getName());
+        }
+
+        System.out.println("\nEnter numbers of achievements you want to add separated by commas (e.g. 1,3,5):");
+
+        String input = scanner.nextLine().trim();
+
+        // Prepare result set
+        Set<Achievement> chosenAchievements = new HashSet<>();
+
+        if (input.isEmpty()) {
+            System.out.println("No input provided. Returning empty selection.\n");
+            return chosenAchievements;
+        }
+
+        // Split input
+        String[] parts = input.split(",");
+
+        for (String part : parts) {
+            part = part.trim();
+
+            // Check if part is a valid integer
+            if (!part.matches("\\d+")) {
+                // not an integer → ignore silently
+                continue;
+            }
+
+            int choice = Integer.parseInt(part);
+
+            // Check valid range
+            if (choice < 1 || choice > achievements.size()) {
+                // out-of-range → ignore silently
+                continue;
+            }
+
+            // Add achievement to set
+            chosenAchievements.add(achievements.get(choice - 1));
+        }
+
+        return chosenAchievements;
     }
+
+
+
+}
 
 
 

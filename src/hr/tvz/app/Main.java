@@ -12,35 +12,27 @@ import java.util.Set;
 import java.io.RandomAccessFile;
 
 import static hr.tvz.app.EntryUtil.askToContinue;
+import static hr.tvz.app.EntryUtil.gatherAllLessons;
 
 
 public class Main {
     public static void main(String[] args) throws IOException {
 
         Scanner scanner = new Scanner(System.in);
-//
-//        Set<Subject> mySubjects = new HashSet<>();
-//        Set<Teacher> myTeachers = new HashSet<>();
-//        Set<Achievement> myAchievements = new HashSet<>();
-//        Set<Student> myStudents = new HashSet<>();
-//
-//
-//
-//
-//        EntryMethods.subjectEntry(scanner, mySubjects);
-//        //EntryMethods.achievementEntry(scanner, myAchievements);
-//        //Teacher myTeacher1 = new Teacher("Mister Johnson");
-//
-//        EntryMethods.teacherEntry(scanner,myTeachers,mySubjects);
-//
-//
-//
-//
+
+        Set<Subject> mySubjects = new HashSet<>();
+        Set<Teacher> myTeachers = new HashSet<>();
+        Set<Achievement> myAchievements = new HashSet<>();
+        Set<Student> myStudents = new HashSet<>();
 
 
 
 
+        MultiEntryMethods.subjectSetEntry(scanner, mySubjects);
+        MultiEntryMethods.teacherSetEntry(scanner,myTeachers,mySubjects);
 
+        MultiEntryMethods.achievementSetEntry(scanner, myAchievements);
+        MultiEntryMethods.studentSetEntry(scanner,myStudents,gatherAllLessons(myTeachers),myAchievements);
 
 
 

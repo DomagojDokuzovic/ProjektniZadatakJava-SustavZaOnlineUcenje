@@ -58,6 +58,19 @@ public final class Lesson implements Evaluatable, Named {
         facts.add(newFact);
     }
 
+    public LessonDifficulty calculateDifficulty(){
+        Integer pointSum = 0;
+        for( Fact fact : facts){
+            pointSum += fact.evaluate();
+        }
+        return switch (pointSum) {
+            case Integer n when (n < 5) -> LessonDifficulty.BEGINNER;
+            case Integer n when (n <= 15) -> LessonDifficulty.INTERMEDIATE;
+            default -> LessonDifficulty.ADVANCED;
+        };
+    }
+
+
     @Override
     public int evaluate() {
         return evaluate(facts);

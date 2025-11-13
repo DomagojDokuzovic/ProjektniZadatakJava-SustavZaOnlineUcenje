@@ -1,22 +1,24 @@
 package hr.tvz.entity;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public final class Student extends User {
-    private HashSet<Lesson> learnedLessons;
-    private HashSet<Achievement> achievements;
+    private Set<Achievement> achievements;
 
     public Student(String username) {super(username);}
 
 
     public void learnLesson(Lesson newLesson) {
-        learnedLessons.add(newLesson);
+        this.getOwnedLessons().add(newLesson);
     }
 
 
     public void addAchievement(Achievement newAchievement) {
         achievements.add(newAchievement);
     }
+
+    public void setAchievements(Set<Achievement> achievements) {this.achievements = achievements;}
 
 
 

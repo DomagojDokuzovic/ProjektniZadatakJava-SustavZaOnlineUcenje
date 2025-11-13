@@ -2,6 +2,7 @@ package hr.tvz.app;
 
 import hr.tvz.entity.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -144,7 +145,7 @@ public class MultiEntryMethods {
 
     }
 
-    public static void studentSetEntry(Scanner scanner, Set<Student> myStudents, Set<Lesson> allAvailableLessons){
+    public static void studentSetEntry(Scanner scanner, Set<Student> myStudents, ArrayList<Lesson> allAvailableLessons, Set<Achievement> allAvailableAchievements){
         do {
             //Entering a name for the Student
             String validTextEntry = null;
@@ -157,13 +158,11 @@ public class MultiEntryMethods {
             Student currentStudent = new Student(validTextEntry);
 
 
+            //Choosing lessons that the Student will take
+            currentStudent.setOwnedLessons(EntryUtil.chooseLessons(scanner,allAvailableLessons));
 
-
-
-
-
-
-
+            //Choosing Achievements that the Student will get
+            currentStudent.setAchievements(EntryUtil.chooseAchievements(scanner,allAvailableAchievements));
 
             //Adding the newly created Student to the Set of Students
             myStudents.add(currentStudent);
