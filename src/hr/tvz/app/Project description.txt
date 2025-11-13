@@ -1,0 +1,84 @@
+SUSTAV ZA ONLINE UČENJE
+-----------------------------------------------------------------------------------------------
+
+Sustav za online učenje
+Aplikacija omogućuje upravljanje entitetima i operacijama specifičnim za područje "Sustav za online učenje".
+Entiteti (npr. User, Booking, Record, Item) moraju biti u paketu `entity`, dok se glavna klasa nalazi u paketu `app`.
+
+
+Objašnjenje: ovaj projekt emulira sustave za online učenje potput Duolingo gdje postoji razni PREDMETI(Subject)
+koji se mogu učiti rješavanjem LEKCIJA(Lesson). Svaka lekcija sadržava određene ČINJENICE(Fact) koje nose
+BODOVE(Points) ovisno o njihovoj vrijednosti. KORISNIK (User) pohađa lekcije i skuplja bodove na svom profilu.
+Također može ostvariti POSTIGNUĆA(Achievement).
+
+
+--------------------------------------------LABOS 1--------------------------------------------
+1.Od korisnika zatražiti unos podataka za pet objekata svake klase koji su dodijeljeni za projektni zadatak.
+2.Dozvoljeno je koristiti samo polja (engl. array) za spremanje objekata.
+3.Povezati objekte na način da jedni sadržavaju druge prema logici projektnog zadatka.
+4.Korisniku omogućiti pretraživanje objekata prema zadanim kriterijima. Za pretraživanje je
+potrebno koristiti „for“, „while“ i „do-while“ petlje.
+5.Korisniku omogućiti pronalaženje objekata s maksimalnim i minimalnim vrijednostima prema
+odabranim parametrima, na primjer, najmlađu osobu, artikl s najvećom cijenom i slično.
+
+otvoriti github acc i podići
+DODATI README.md, ide u root
+definirati datoteku - popis akcija - test caseovi, da ne moram ukucavat svaki put
+-read line paste line
+
+
+
+
+
+
+--------------------------------------------LABOS 2--------------------------------------------
+1.  Proširiti rješenje prve laboratorijske vježbe s jednom apstraktnom klasu, dva sučelja od kojeg jedno
+mora biti zapečaćeno te jednim zapisom.
+2.  Prilagoditi ostatak programa kako bi uspješno od korisnika tražio i dodatne podatke koji su uvedeni
+sučeljima i zapisom.
+3.  U barem jednom primjeru potrebno je koristiti koncepte polimorfizma te u jedno polje dodati
+objekte podklasa koji imaju jednu zajedničku nadklasu te odrediti vrijednosti s maksimalnim i
+minimalnim vrijednostima prema odabranim parametrima, na primjer, najmlađu osobu, artikl s najvećom
+cijenom i slično.
+4.  Dodati „builder pattern“ za barem jednu klasu koja se koristi u aplikaciji i iskoristiti ga.
+
+
+
+
+
+--------------------------------------------LABOS 3--------------------------------------------
+1. Proširiti rješenje druge laboratorijske vježbe s dvije „checked“ iznimke u
+dijelovima koda (kod neispravnog unosa podataka, na primjer string vrijednosti
+umjesto brojčanih, nakon čega korisnik mora ponoviti unos).
+2. Proširiti rješenje druge laboratorijske vježbe s dvije „unchecked“ iznimke i
+dijelovima koda (kod logičkih pogrešaka gdje to nije primjereno, na primjer kod
+unosa negativnih iznosa gdje mogu biti samo pozitivni ili kod isteka
+maksimalnog vremena čekanja na korisnički unos podataka).
+3. Konfigurirati Logback biblioteku koja će omogućavati kreiranje „log“ datoteka i
+zapisivati („logirati“) najvažnije događaje u aplikacije sa svih pet razina
+logiranja (TRACE, DEBUG, INFO, WARN i ERROR).
+4. Za svaku metodu i klasu generiranje Javadoc dokumentacije.
+
+
+-puno specifičniji exceptioni, po imenu npr IllegalHouseNumberFormatException - njega napravis da extenda
+NumberFormatException umjesto samo Exception.
+-neka kontstruktor exceptiona prima ono sto je krivo npr (String houseNumber) i onda u konstruktoru kazes
+super("greska kod unosa broja: " + houseNumber);
+-otvori log, priredi bolji log, ne smije se zvat pogreška.log, neka se zove application.log,
+-moze vise razlicitih logova, neka bude posebni za pogreske
+-detaljnija struktura paketa - tipa neka budu lesson i lessonexception zajedno u paketu i tako dalje
+(feature based project structure)
+-empty entry exception, repeat entry exception, negative points entry exception, invalid number format exception.
+
+
+--------------------------------------------LABOS 4--------------------------------------------
+1. Proširiti rješenje treće laboratorijske vježbe s dodatnim zbirkama: listama,
+setovima i mapama te enumeracijom. S navedenim zbirkama potrebno je
+zamijeniti sva mjesta u kodu gdje se koriste polja.
+2. Omogućiti sortiranje podataka korištenjem sučelja „Comparator“ i lambda
+izraza.
+3. U aplikaciji koristiti tehnike i metode objašnjene u predavanjima i auditornim
+vježbama: Sequenced Collections, Stream Gatherers,
+Collectors.partitioningBy() i Collectors.groupingBy()
+
+
